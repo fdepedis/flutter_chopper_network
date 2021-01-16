@@ -2,6 +2,8 @@
 import 'package:chopper/chopper.dart';
 // 2
 import 'package:flutter_chopper_network/models/popular.dart';
+import 'header_interceptor.dart';
+import 'model_converter.dart';
 
 // 3
 part 'movie_service.chopper.dart';
@@ -21,6 +23,10 @@ abstract class MovieService extends ChopperService {
     final client = ChopperClient(
       // 10
       baseUrl: 'https://api.themoviedb.org/3',
+      interceptors: [HeaderInterceptor(), HttpLoggingInterceptor()],
+      converter: ModelConverter(),
+      errorConverter: JsonConverter(),
+
       // 11
       services: [
         _$MovieService(),

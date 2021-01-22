@@ -4,7 +4,13 @@ import 'package:flutter_chopper_network/models/popular.dart';
 import 'package:flutter_chopper_network/service/movie_service.dart';
 import 'package:provider/provider.dart';
 
+import 'detail_screen.dart';
+
 class MovieListings extends StatefulWidget {
+/*  List<Popular> popular;
+
+  MovieListings({Key key, @required this.popular}) : super(key: key);*/
+
   @override
   _MovieListingsState createState() => _MovieListingsState();
 }
@@ -60,45 +66,56 @@ class _MovieListingsState extends State<MovieListings> {
       itemBuilder: (context, index) {
         return Card(
           elevation: 4,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 150,
-                  height: 200,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(
-                              IMAGE_URL + popular.results[index].posterPath),
-                          fit: BoxFit.contain)),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      DetailScreen(popular: popular, index: index),
                 ),
-                Expanded(
-                  child: Container(
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 150,
                     height: 200,
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                          popular.results[index].title,
-                          style: TextStyle(fontSize: 14),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Expanded(
-                          child: Container(
-                            child: Text(
-                              popular.results[index].overview,
-                              style: TextStyle(fontSize: 12),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                IMAGE_URL + popular.results[index].posterPath),
+                            fit: BoxFit.contain)),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 200,
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            popular.results[index].title,
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Expanded(
+                            child: Container(
+                              child: Text(
+                                popular.results[index].overview,
+                                style: TextStyle(fontSize: 12),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         );

@@ -4,7 +4,7 @@ import 'package:flutter_chopper_network/models/popular.dart';
 
 class DetailScreen extends StatelessWidget {
   final Popular popular;
-  int index;
+  final int index;
   DetailScreen({Key key, @required this.popular, @required this.index})
       : super(key: key);
 

@@ -85,10 +85,11 @@ class _MovieListingsState extends State<MovieListings> {
                     width: 150,
                     height: 200,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                IMAGE_URL + popular.results[index].posterPath),
-                            fit: BoxFit.contain)),
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              IMAGE_URL + popular.results[index].posterPath),
+                          fit: BoxFit.contain),
+                    ),
                   ),
                   Expanded(
                     child: Container(

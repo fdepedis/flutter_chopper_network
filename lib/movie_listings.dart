@@ -7,10 +7,6 @@ import 'package:provider/provider.dart';
 import 'detail_screen.dart';
 
 class MovieListings extends StatefulWidget {
-/*  List<Popular> popular;
-
-  MovieListings({Key key, @required this.popular}) : super(key: key);*/
-
   @override
   _MovieListingsState createState() => _MovieListingsState();
 }

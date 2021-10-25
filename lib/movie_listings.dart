@@ -107,6 +107,8 @@ class _MovieListingsState extends State<MovieListings> {
                             child: Container(
                               child: Text(
                                 popular.results[index].overview,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 12,
                                 style: TextStyle(fontSize: 12),
                               ),
                             ),

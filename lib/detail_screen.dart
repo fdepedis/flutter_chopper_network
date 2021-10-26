@@ -70,7 +70,7 @@ class DetailScreen extends StatelessWidget {
               ),*/
               Icon(
                 Icons.supervised_user_circle,
-                color: popular.results[index].adult == false
+                color: (popular.results[index].adult == false)
                     ? Colors.green
                     : Colors.red,
               ),

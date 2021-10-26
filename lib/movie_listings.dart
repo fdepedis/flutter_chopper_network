@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chopper/chopper.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_chopper_network/models/popular.dart';
 import 'package:flutter_chopper_network/service/movie_service.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,16 @@ class _MovieListingsState extends State<MovieListings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Movie Listings'),
+        title: Text(
+          'Movie Listings',
+          style: TextStyle(
+              fontFamily: 'Pacifico',
+              fontSize: 20.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold),
+        ),
+        systemOverlayStyle:
+            SystemUiOverlayStyle(statusBarColor: Colors.orangeAccent),
       ),
       body: RefreshIndicator(
         child: _buildBody(context),

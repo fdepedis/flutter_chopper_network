@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_chopper_network/splash_screen.dart';
 import 'movie_listings.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_chopper_network/service/movie_service.dart';
@@ -27,9 +30,9 @@ class MyApp extends StatelessWidget {
         title: 'Movie Listings',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.orange,
         ),
-        home: MovieListings(),
+        home: new SplashScreen(),
       ),
     );
   }

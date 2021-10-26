@@ -7,10 +7,6 @@ import 'package:provider/provider.dart';
 import 'detail_screen.dart';
 
 class MovieListings extends StatefulWidget {
-/*  List<Popular> popular;
-
-  MovieListings({Key key, @required this.popular}) : super(key: key);*/
-
   @override
   _MovieListingsState createState() => _MovieListingsState();
 }
@@ -22,7 +18,14 @@ class _MovieListingsState extends State<MovieListings> {
       appBar: AppBar(
         title: Text('Movie Listings'),
       ),
-      body: _buildBody(context),
+      body: RefreshIndicator(
+        child: _buildBody(context),
+        onRefresh: () {
+          return Future.delayed(Duration(seconds: 1), () {
+            _buildBody(context);
+          });
+        },
+      ),
     );
   }
 
@@ -107,6 +110,8 @@ class _MovieListingsState extends State<MovieListings> {
                             child: Container(
                               child: Text(
                                 popular.results[index].overview,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 12,
                                 style: TextStyle(fontSize: 12),
                               ),
                             ),

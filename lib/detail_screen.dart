@@ -13,7 +13,7 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color color = Theme.of(context).primaryColor;
+    Color color = Colors.black;
 
     Widget titleSection = Container(
       padding: const EdgeInsets.all(32),
@@ -101,7 +101,14 @@ class DetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Film Details"),
+        title: Text(
+          "Film Details",
+          style: TextStyle(
+              fontFamily: 'Pacifico',
+              fontSize: 20.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold),
+        ),
       ),
       body: ListView(
         children: <Widget>[

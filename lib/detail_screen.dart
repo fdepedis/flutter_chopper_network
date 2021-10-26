@@ -44,6 +44,9 @@ class DetailScreen extends StatelessWidget {
               Text(popular.results[index].voteAverage.toString()),
             ],
           ),
+          SizedBox(
+            height: 15.0,
+          ),
           Row(
             children: [
               Expanded(
@@ -58,6 +61,18 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              /*Container(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Text(
+                  'Adult: ',
+                ),
+              ),*/
+              Icon(
+                Icons.supervised_user_circle,
+                color: popular.results[index].adult == false
+                    ? Colors.green
+                    : Colors.red,
               ),
             ],
           ),

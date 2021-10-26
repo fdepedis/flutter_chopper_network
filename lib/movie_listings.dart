@@ -18,7 +18,14 @@ class _MovieListingsState extends State<MovieListings> {
       appBar: AppBar(
         title: Text('Movie Listings'),
       ),
-      body: _buildBody(context),
+      body: RefreshIndicator(
+        child: _buildBody(context),
+        onRefresh: () {
+          return Future.delayed(Duration(seconds: 1), () {
+            _buildBody(context);
+          });
+        },
+      ),
     );
   }
 
